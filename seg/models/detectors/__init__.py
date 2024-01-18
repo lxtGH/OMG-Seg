@@ -1,0 +1,2 @@
+from .mask2former_vid import Mask2formerVideo
+from .mask2former_vid_minvis import Mask2formerVideoMinVIS

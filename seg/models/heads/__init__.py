@@ -1,0 +1,1 @@
+from .mask2former_vid import Mask2FormerVideoHead
