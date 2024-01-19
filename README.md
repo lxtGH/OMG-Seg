@@ -1,7 +1,7 @@
 
 <br />
 <p align="center">
-  <h1 align="center">Tube-Link: A Flexible Cross Tube Framework for Universal Video Segmentation</h1>
+  <h1 align="center">OMG-Seg: Is One Model Good Enough For All Segmentation?</h1>
   <p align="center">
     Arxiv, 2024
     <br />
