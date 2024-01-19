@@ -26,7 +26,7 @@
   </p>
 
   <p align="center">
-    <a href=''>
+    <a href='https://arxiv.org/abs/2401.10229'>
       <img src='https://img.shields.io/badge/Paper-PDF-green?style=flat&logo=arXiv&logoColor=green' alt='arXiv PDF'>
     </a>
     <a href='https://lxtgh.github.io/project/omg_seg/' style='padding-left: 0.5rem;'>
@@ -67,19 +67,32 @@ We show that OMG-Seg, a transformer-based encoder-decoder architecture with task
 
 ### Dataset 
 
-See [DATASET.md](docs/DATASET.md)
+See [DATASET.md](./DATASET.md)
 
 
 ### Install
 
-See [INSTALL.md](docs/INSTALL.md)
+Our codebase is built with [MMdetection-3.0](https://github.com/open-mmlab/mmdetection) tools.
+
+See [INSTALL.md](./INSTALL.md)
+
 
 ### Test 
 
 See the configs under seg/configs/m2ov_val.
 
+For example, test COCO dataset.
+
+```commandline
+./toos/dist.sh test seg/configs/m2ov_val/eval_m2_convl_300q_ov_coco.py model_path 4
+```
+
+
 ### Model
 
+Convnext-large backbone. [model](https://drive.google.com/file/d/12cERt0u6sY9A-OkQcSroyXfBmk9GHFLH/view?usp=drive_link)
+
+Convnext-XX-large backbone. [model](https://drive.google.com/file/d/1aDIDAq3u2j-FO-bttq-BYMelwhDFESIS/view?usp=sharing)
 
 
 ## Citation
