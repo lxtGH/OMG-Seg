@@ -38,8 +38,14 @@
   </p>
 <br />
 
-
 ![avatar](./figs/omg_teaser.jpg)
+
+
+### Short Introduction
+
+In this work, we address various segmentation tasks, each traditionally tackled by distinct or partially unified models. We propose OMG-Seg, One Model that is Good enough to efficiently and effectively handle all the segmentation tasks, including image semantic, instance, and panoptic segmentation, as well as their video counterparts, open vocabulary settings, prompt-driven, interactive segmentation like SAM, and video object segmentation. To our knowledge, this is the first model to fill all these tasks in one model and achieve good enough performance.
+
+We show that OMG-Seg, a transformer-based encoder-decoder architecture with task-specific queries and outputs, can support over ten distinct segmentation tasks and yet significantly reduce computational and parameter overhead across various tasks and datasets. We rigorously evaluate the inter-task influences and correlations during co-training. Both the code and models will be publicly available.
 
 ## News !!
 
@@ -48,7 +54,7 @@
 ## To Do List
 
 - Release training code. 
-- Release CKPT.
+- Release CKPTs.
 - Support HuggingFace.
 
 ## Features
@@ -56,19 +62,24 @@
 - The first universal model that support image segmentation, video segmentation, open-vocabulary segmentation, multi-dataset segmentation, interactive segmentation.
 - A new unified view for solving multiple segmentation tasks in one view.
 
-## Set Up
+## Experiment Set Up
 
 
 ### Dataset 
 
-See [Dataset.md](docs/DATASET.md)
+See [DATASET.md](docs/DATASET.md)
 
 
 ### Install
 
-See [Install.md](docs/INSTALL.md)
+See [INSTALL.md](docs/INSTALL.md)
 
 ### Test 
+
+See the configs under seg/configs/m2ov_val.
+
+### Model
+
 
 
 ## Citation
@@ -86,4 +97,4 @@ If you think OMG-Seg codebase are useful for your research, please consider refe
 
 ## License
 
-S-Lab LICENSE
+S-Lab [LICENSE](LICENSE).
