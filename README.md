@@ -53,6 +53,22 @@
 
 ## Features
 
+- The first universal model that support image segmentation, video segmentation, open-vocabulary segmentation, multi-dataset segmentation, interactive segmentation.
+- A new unified view for solving multiple segmentation tasks in one view.
+
+## Set Up
+
+
+### Dataset 
+
+See [Dataset.md](docs/DATASET.md)
+
+
+### Install
+
+See [Install.md](docs/INSTALL.md)
+
+### Test 
 
 
 ## Citation
