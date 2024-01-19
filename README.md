@@ -32,6 +32,9 @@
     <a href='https://lxtgh.github.io/project/omg_seg/' style='padding-left: 0.5rem;'>
       <img src='https://img.shields.io/badge/Project-Page-blue?style=flat&logo=Google%20chrome&logoColor=blue' alt='Project Page'>
     </a>
+    <a href='https://huggingface.co/LXT/OMG_Seg' style='padding-left: 0.5rem;'>
+      <img src='https://img.shields.io/badge/Huggingface%20Model-8A2BE2' alt='Project Page'>
+    </a>
   </p>
 <br />
 
@@ -42,7 +45,14 @@
 
 - Test Code and Models are released!! 
 
+## To Do List
+
+- Release training code. 
+- Release CKPT.
+- Support HuggingFace.
+
 ## Features
+
 
 
 ## Citation
