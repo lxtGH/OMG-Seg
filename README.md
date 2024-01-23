@@ -35,6 +35,9 @@
     <a href='https://huggingface.co/LXT/OMG_Seg' style='padding-left: 0.5rem;'>
       <img src='https://img.shields.io/badge/Huggingface%20Model-8A2BE2' alt='Project Page'>
     </a>
+    <a href="https://huggingface.co/spaces/LXT/OMG_Seg">
+    <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-App-blue' alt='HuggingFace Model'>
+    </a>
   </p>
 <br />
 
@@ -53,9 +56,9 @@ We show that OMG-Seg, a transformer-based encoder-decoder architecture with task
 
 ## To Do List
 
-- Release training code. 
-- Release CKPTs.
-- Support HuggingFace.
+- Release training code. (to do)
+- Release CKPTs. （done）
+- Support HuggingFace. (done)
 
 ## Features
 
@@ -77,33 +80,78 @@ Our codebase is built with [MMdetection-3.0](https://github.com/open-mmlab/mmdet
 See [INSTALL.md](./INSTALL.md)
 
 
-### Test 
+### Quick Start
+
+#### Preparation
+
+1. First set up the [dataset](./DATASET.md) and [environment](./INSTALL.md).
+
+2. Download pre-trained CLIP backbone. The scripts will 
+
+3. Generate CLIP text embedding for each dataset. See the [embedding generation](EMB.md). 
+
+#### Train
+
+To be released and please stay tuned.
+
+#### Test 
 
 See the configs under seg/configs/m2ov_val.
 
-For example, test COCO dataset.
+Test Cityscape dataset, we observe 0.3% noises for Cityscapes panoptic segmentation
 
 ```commandline
-./toos/dist.sh test seg/configs/m2ov_val/eval_m2_convl_300q_ov_coco.py model_path 4
+./tools/dist.sh test seg/configs/m2ov_val/eval_m2_convl_300q_ov_cityscapes.py 4 --checkpoint model_path
+```
+
+Test COCO dataset, we observe 0.5% noises for COCO panoptic segmentation
+
+```commandline
+./tools/dist.sh test seg/configs/m2ov_val/eval_m2_convl_300q_ov_coco.py 4 --checkpoint model_path
+```
+
+Test Open-Vocabulary ADE dataset, we observe 0.8% noises for COCO panoptic segmentation
+
+```commandline
+./tools/dist.sh test seg/configs/m2ov_val/eval_m2_convl_300q_ov_ade.py 4 --checkpoint model_path
+```
+
+Test Interactive COCO segmentation:
+
+```commandline
+./tools/dist.sh test seg/configs/m2ov_val/eval_m2_convl_ov_coco_pan_point.py 4 --checkpoint model_path
+```
+
+Test Youtube-VIS-19 dataset
+
+```commandline
+./tools/dist.sh test seg/configs/m2ov_val/eval_m2_convl_300q_ov_y19.py 4 --checkpoint model_path
+```
+
+Test VIP-Seg dataset
+
+```commandline
+./tools/dist.sh test seg/configs/m2ov_val/eval_m2_convl_300q_ov_vipseg.py 1 --checkpoint model_path
 ```
 
 
-### Model
+### Trained Model
 
-Convnext-large backbone. [model](https://drive.google.com/file/d/12cERt0u6sY9A-OkQcSroyXfBmk9GHFLH/view?usp=drive_link)
+ConvNeXt-large backbone. [model](https://drive.google.com/file/d/12cERt0u6sY9A-OkQcSroyXfBmk9GHFLH/view?usp=drive_link)
 
-Convnext-XX-large backbone. [model](https://drive.google.com/file/d/1aDIDAq3u2j-FO-bttq-BYMelwhDFESIS/view?usp=sharing)
+ConvNeXt-XX-large backbone. [model](https://drive.google.com/file/d/1aDIDAq3u2j-FO-bttq-BYMelwhDFESIS/view?usp=sharing)
 
+We will release more models in future.
 
 ## Citation
 
 If you think OMG-Seg codebase are useful for your research, please consider referring us:
 
 ```bibtex
-@article{omgseg,
+@article{li2024omg,
   title={OMG-Seg: Is One Model Good Enough For All Segmentation?},
   author={Li, Xiangtai and Yuan, Haobo and Li, Wei and Ding, Henghui and Wu, Size and Zhang, Wenwei and Li, Yining and Chen, Kai and Loy, Chen Change},
-  journal={arXiv},
+  journal={arXiv preprint arXiv:2401.10229},
   year={2024}
 }
 ```

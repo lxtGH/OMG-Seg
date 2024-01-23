@@ -45,3 +45,5 @@ tqdm terminaltables pycocotools scipy tqdm ftfy regex timm scikit-image kornia
 ```
 
 The default environment is openmmlab on Shanghai AI server.
+
+We suggest using mmcv 2.x with mmdet3.x version for this repo.
