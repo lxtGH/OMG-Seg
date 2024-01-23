@@ -15,14 +15,28 @@ The default setting as mmdetection.
 ```
 
 
-### [PS] Cityscapes dataset 
-
-
-
-### [VIS] Youtube-VIS (2019/2021)
+### [PS] Cityscapes dataset
 
 ```
-├── youtubevis
+├── cityscapes
+│   ├── annotations
+│   │   ├── instancesonly_filtered_gtFine_train.json # coco instance annotation file(COCO format)
+│   │   ├── instancesonly_filtered_gtFine_val.json
+│   │   ├── cityscapes_panoptic_train.json  # panoptic json file 
+│   │   ├── cityscapes_panoptic_val.json  
+│   ├── leftImg8bit
+│   ├── gtFine
+│   │   ├──cityscapes_panoptic_{train,val}/  # png annotations
+│   │   
+```
+
+
+
+
+### [VIS] Youtube-VIS (2019/2021) dataset 
+
+```
+├── youtubevis2019
 │   ├── annotations
 │   │   ├── train.json
 │   │   ├── valid.json
@@ -34,7 +48,20 @@ The default setting as mmdetection.
 │   │   │   ├──video floders
 ```
 
-### [VPS] VIPSeg
+```
+├── youtubevis2021
+│   ├── annotations
+│   │   ├── train.json
+│   │   ├── valid.json
+│   ├── train
+│   │   ├──JPEGImages
+│   │   │   ├──video floders
+│   ├── valid
+│   │   ├──JPEGImages
+│   │   │   ├──video floders
+```
+
+### [VPS] VIPSeg dataset
 
 Download the origin dataset from the official repo.\
 Following official repo, we use resized videos for training and evaluation (The short size of the input is set to 720 while the ratio is keeped).
@@ -50,7 +77,7 @@ Following official repo, we use resized videos for training and evaluation (The 
 │   ├──  panomasksRGB 
 ```
 
-### [SS/PS] ADE  
+### [SS/PS] ADE dataset
 
 The default setting as mmdet
 
@@ -65,3 +92,19 @@ The default setting as mmdet
 │   │   ├── ade20k_panoptic_val.json
 ```
 
+Finally, link the download the dataset into the data folder as 
+
+```
+root
+├── ext
+├── figs
+├── seg
+├── tools
+├── data
+│   ├──coco
+│   ├──ade
+│   ├──cityscapes
+│   ├──VIPSeg
+│   ├──youtube_vis_2019
+│   ├──youtube_vis_2021
+│   ├──DAVIS

@@ -44,4 +44,6 @@ git+https://github.com/HarborYuan/lvis-api.git \
 tqdm terminaltables pycocotools scipy tqdm ftfy regex timm scikit-image kornia
 ```
 
-THe default environment is openmmlab on Shanghai AI server.
+The default environment is openmmlab on Shanghai AI server.
+
+We suggest using mmcv 2.x with mmdet3.x version for this repo.
