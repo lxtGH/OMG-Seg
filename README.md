@@ -35,6 +35,9 @@
     <a href='https://huggingface.co/LXT/OMG_Seg' style='padding-left: 0.5rem;'>
       <img src='https://img.shields.io/badge/Huggingface%20Model-8A2BE2' alt='Project Page'>
     </a>
+    <a href="https://huggingface.co/spaces/LXT/OMG_Seg">
+    <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-App-blue' alt='HuggingFace Model'>
+    </a>
   </p>
 <br />
 
@@ -53,9 +56,9 @@ We show that OMG-Seg, a transformer-based encoder-decoder architecture with task
 
 ## To Do List
 
-- Release training code. 
-- Release CKPTs.
-- Support HuggingFace.
+- Release training code. (to do)
+- Release CKPTs. （done）
+- Support HuggingFace. (done)
 
 ## Features
 
