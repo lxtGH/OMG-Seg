@@ -42,10 +42,10 @@ The default setting as mmdetection.
 │   │   ├── valid.json
 │   ├── train
 │   │   ├──JPEGImages
-│   │   │   ├──video floders
+│   │   │   ├──video folders
 │   ├── valid
 │   │   ├──JPEGImages
-│   │   │   ├──video floders
+│   │   │   ├──video folders
 ```
 
 ```
@@ -55,10 +55,10 @@ The default setting as mmdetection.
 │   │   ├── valid.json
 │   ├── train
 │   │   ├──JPEGImages
-│   │   │   ├──video floders
+│   │   │   ├──video folders
 │   ├── valid
 │   │   ├──JPEGImages
-│   │   │   ├──video floders
+│   │   │   ├──video folders
 ```
 
 ### [VPS] VIPSeg dataset
