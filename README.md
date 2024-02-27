@@ -3,7 +3,7 @@
 <p align="center">
   <h1 align="center">OMG-Seg: Is One Model Good Enough For All Segmentation?</h1>
   <p align="center">
-    Arxiv, 2024
+    CVPR, 2024
     <br />
     <a href="https://lxtgh.github.io/"><strong>Xiangtai Li</strong></a>
     ·
@@ -151,7 +151,7 @@ If you think OMG-Seg codebase are useful for your research, please consider refe
 @article{li2024omg,
   title={OMG-Seg: Is One Model Good Enough For All Segmentation?},
   author={Li, Xiangtai and Yuan, Haobo and Li, Wei and Ding, Henghui and Wu, Size and Zhang, Wenwei and Li, Yining and Chen, Kai and Loy, Chen Change},
-  journal={arXiv preprint arXiv:2401.10229},
+  journal={CVPR},
   year={2024}
 }
 ```
