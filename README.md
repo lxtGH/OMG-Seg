@@ -27,17 +27,13 @@
 
   <p align="center">
     <a href='https://arxiv.org/abs/2401.10229'>
-      <img src='https://img.shields.io/badge/Paper-PDF-green?style=flat&logo=arXiv&logoColor=green' alt='arXiv PDF'>
-    </a>
+      <img src='https://img.shields.io/badge/Paper-PDF-green?style=flat&logo=arXiv&logoColor=green' alt='arXiv PDF'> </a>
     <a href='https://lxtgh.github.io/project/omg_seg/' style='padding-left: 0.5rem;'>
-      <img src='https://img.shields.io/badge/Project-Page-blue?style=flat&logo=Google%20chrome&logoColor=blue' alt='Project Page'>
-    </a>
+      <img src='https://img.shields.io/badge/Project-Page-blue?style=flat&logo=Google%20chrome&logoColor=blue' alt='Project Page'> </a>
     <a href='https://huggingface.co/LXT/OMG_Seg' style='padding-left: 0.5rem;'>
-      <img src='https://img.shields.io/badge/Huggingface%20Model-8A2BE2' alt='Project Page'>
-    </a>
+      <img src='https://img.shields.io/badge/Huggingface%20Model-8A2BE2' alt='Project Page'> </a>
     <a href="https://huggingface.co/spaces/LXT/OMG_Seg">
-    <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-App-blue' alt='HuggingFace Model'>
-    </a>
+    <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-App-blue' alt='HuggingFace Model'> </a>
   </p>
 <br />
 
@@ -52,18 +48,18 @@ We show that OMG-Seg, a transformer-based encoder-decoder architecture with task
 
 ## News !!
 
-- Test Code and Models are released!! 
+- Test Models and Code are released!! 
 
-## To Do List
+## To-Do List
 
 - Release training code. (to do)
-- Release CKPTs. （done）
+- Release CKPTs.（done）
 - Support HuggingFace. (done)
 
 ## Features
 
-- The first universal model that support image segmentation, video segmentation, open-vocabulary segmentation, multi-dataset segmentation, interactive segmentation.
-- A new unified view for solving multiple segmentation tasks in one view.
+- The first universal model that support image segmentation, video segmentation, open-vocabulary segmentation, multi-dataset segmentation, interactive segmentation. 
+- A new unified view for solving multiple segmentation tasks in one view. 
 
 ## Experiment Set Up
 
