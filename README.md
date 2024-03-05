@@ -26,6 +26,10 @@
   </p>
 
   <p align="center">
+    S-Lab, MMlab@NTU, Shanghai AI Laboratory
+  </p>
+
+  <p align="center">
     <a href='https://arxiv.org/abs/2401.10229'>
       <img src='https://img.shields.io/badge/Paper-PDF-green?style=flat&logo=arXiv&logoColor=green' alt='arXiv PDF'> </a>
     <a href='https://lxtgh.github.io/project/omg_seg/' style='padding-left: 0.5rem;'>
