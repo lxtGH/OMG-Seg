@@ -46,17 +46,19 @@
 
 ### Short Introduction
 
-In this work, we address various segmentation tasks, each traditionally tackled by distinct or partially unified models. We propose OMG-Seg, One Model that is Good enough to efficiently and effectively handle all the segmentation tasks, including image semantic, instance, and panoptic segmentation, as well as their video counterparts, open vocabulary settings, prompt-driven, interactive segmentation like SAM, and video object segmentation. To our knowledge, this is the first model to fill all these tasks in one model and achieve good enough performance.
+In this work, we address various segmentation tasks, each traditionally tackled by distinct or partially unified models. 
+We propose OMG-Seg, One Model that is Good enough to efficiently and effectively handle all the Segmentation tasks, including image semantic, instance, and panoptic segmentation, as well as their video counterparts, open vocabulary settings, prompt-driven, interactive segmentation like SAM, and video object segmentation. To our knowledge, this is the first model to fill all these tasks in one model and achieve good enough performance.
 
 We show that OMG-Seg, a transformer-based encoder-decoder architecture with task-specific queries and outputs, can support over ten distinct segmentation tasks and yet significantly reduce computational and parameter overhead across various tasks and datasets. We rigorously evaluate the inter-task influences and correlations during co-training. Both the code and models will be publicly available.
 
 ## News !!
 
-- Test Models and Code are released!! 
+- OMG-Seg is accepted by CVPR-2024 !! (2024-2-26)
+- Test Models and Code are released !! (2024-1-19) 
 
 ## To-Do List
 
-- Release training code. (to do)
+- Release training code. (to be done)
 - Release CKPTs.（done）
 - Support HuggingFace. (done)
 
@@ -82,13 +84,15 @@ See [INSTALL.md](./INSTALL.md)
 
 ### Quick Start
 
-#### Preparation
+#### Experiment Preparation
 
 1. First set up the [dataset](./DATASET.md) and [environment](./INSTALL.md).
 
-2. Download pre-trained CLIP backbone. The scripts will 
+2. Download pre-trained CLIP backbone. The scripts will automatically download the pre-trained CLIP models.
 
 3. Generate CLIP text embedding for each dataset. See the [embedding generation](EMB.md). 
+
+4. Run the scripts below.
 
 #### Train
 
