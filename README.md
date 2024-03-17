@@ -138,24 +138,32 @@ Test VIP-Seg dataset
 ./tools/dist.sh test seg/configs/m2ov_val/eval_m2_convl_300q_ov_vipseg.py 1 --checkpoint model_path
 ```
 
-
 ### Trained Model
 
 ConvNeXt-large backbone. [model](https://drive.google.com/file/d/12cERt0u6sY9A-OkQcSroyXfBmk9GHFLH/view?usp=drive_link)
 
 ConvNeXt-XX-large backbone. [model](https://drive.google.com/file/d/1aDIDAq3u2j-FO-bttq-BYMelwhDFESIS/view?usp=sharing)
 
-We will release more models in future.
+We will release more models in the future, including leveraging more datasets, beyond our CVPR versions.
+
 
 ## Citation
 
-If you think OMG-Seg codebase are useful for your research, please consider referring us:
+If you think OMG-Seg codebase and models are useful for your research, please consider referring us:
 
 ```bibtex
-@article{li2024omg,
-  title={OMG-Seg: Is One Model Good Enough For All Segmentation?},
-  author={Li, Xiangtai and Yuan, Haobo and Li, Wei and Ding, Henghui and Wu, Size and Zhang, Wenwei and Li, Yining and Chen, Kai and Loy, Chen Change},
-  journal={CVPR},
+@inproceedings{OMGSeg,
+author       = {Xiangtai Li and
+                  Haobo Yuan and
+                  Wei Li and
+                  Henghui Ding and
+                  Size Wu and
+                  Wenwei Zhang and
+                  Yining Li and
+                  Kai Chen and
+                  Chen Change Loy},
+  title        = {OMG-Seg: Is One Model Good Enough For All Segmentation?},
+booktitle={CVPR},
   year={2024}
 }
 ```
