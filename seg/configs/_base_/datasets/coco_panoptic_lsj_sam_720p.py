@@ -2,16 +2,16 @@
 from mmcv.transforms import LoadImageFromFile, RandomResize
 from mmengine.dataset import DefaultSampler
 
-from mmdet.datasets import AspectRatioBatchSampler, CocoPanopticDataset
+from mmdet.datasets import AspectRatioBatchSampler
 from mmdet.datasets.transforms import LoadPanopticAnnotations, RandomFlip, RandomCrop, PackDetInputs, Resize
 from mmdet.evaluation import CocoPanopticMetric, CocoMetric
 
-from seg.datasets.coco_ov import CocoPanopticOVDataset
-from seg.datasets.pipelines.loading import LoadPanopticAnnotationsHB
+from seg.datasets.coco_pan_sam import CocoPanopticSAMDataset
+from seg.datasets.pipelines.loading import LoadPanopticAnnotationsHB, FilterAnnotationsHB
 
 data_root = 'data/coco/'
 backend_args = None
-image_size = (1024, 1024)
+image_size = (1280, 736)
 
 train_pipeline = [
     dict(
@@ -38,6 +38,12 @@ train_pipeline = [
         crop_type='absolute',
         recompute_bbox=True,
         allow_negative_crop=True),
+    dict(
+        type=FilterAnnotationsHB,
+        by_box=False,
+        by_mask=True,
+        min_gt_mask_area=32,
+    ),
     dict(type=PackDetInputs)
 ]
 train_dataloader = dict(
@@ -47,7 +53,7 @@ train_dataloader = dict(
     sampler=dict(type=DefaultSampler, shuffle=True),
     batch_sampler=dict(type=AspectRatioBatchSampler),
     dataset=dict(
-        type=CocoPanopticOVDataset,
+        type=CocoPanopticSAMDataset,
         data_root=data_root,
         ann_file='annotations/panoptic_train2017.json',
         data_prefix=dict(img='train2017/', seg='annotations/panoptic_train2017/'),
@@ -67,13 +73,13 @@ test_pipeline = [
     )
 ]
 val_dataloader = dict(
-    batch_size=2,
+    batch_size=1,
     num_workers=2,
     persistent_workers=True,
     drop_last=False,
     sampler=dict(type=DefaultSampler, shuffle=False),
     dataset=dict(
-        type=CocoPanopticDataset,
+        type=CocoPanopticSAMDataset,
         data_root=data_root,
         ann_file='annotations/panoptic_val2017.json',
         data_prefix=dict(img='val2017/', seg='annotations/panoptic_val2017/'),

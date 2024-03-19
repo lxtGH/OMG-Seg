@@ -47,14 +47,35 @@
 ### Short Introduction
 
 In this work, we address various segmentation tasks, each traditionally tackled by distinct or partially unified models. 
-We propose OMG-Seg, One Model that is Good enough to efficiently and effectively handle all the Segmentation tasks, including image semantic, instance, and panoptic segmentation, as well as their video counterparts, open vocabulary settings, prompt-driven, interactive segmentation like SAM, and video object segmentation. To our knowledge, this is the first model to fill all these tasks in one model and achieve good enough performance.
+We propose OMG-Seg, One Model that is Good enough to efficiently and effectively handle all the Segmentation tasks, including image semantic, instance, and panoptic segmentation, as well as their video counterparts, open vocabulary settings, prompt-driven, interactive segmentation like SAM, and video object segmentation.
+To our knowledge, this is **the first model** to fill all these tasks in one model and achieve good enough performance.
 
 We show that OMG-Seg, a transformer-based encoder-decoder architecture with task-specific queries and outputs, can support over ten distinct segmentation tasks and yet significantly reduce computational and parameter overhead across various tasks and datasets. We rigorously evaluate the inter-task influences and correlations during co-training. Both the code and models will be publicly available.
 
+
 ## News !!
 
-- OMG-Seg is accepted by CVPR-2024 !! (2024-2-26)
-- Test Models and Code are released !! (2024-1-19) 
+- 2024-3-18, Training Code of OMG-Seg are released !! Stronger Performance using Object-365-instance segmentation pre-train !!
+- 2024-2-26， OMG-Seg is accepted by CVPR-2024 !!
+- 2024-1-19， Models and Test Code are released !!
+
+
+## Features
+
+### $\color{#2F6EBA}{Universal\ Image\, Video\, Open-Vocabulary\, Segmentation\ Model}$ 
+
+- A new unified solution for over ten different segmentation tasks: PS, IS, VSS, VIS, VPS, Open-Vocabulary Seg, and Interactive Segmentation.
+- A novel unified view for solving multiple segmentation tasks in one view.
+
+### $\color{#2F6EBA}{Good\ Performance}$  
+
+- Achieves good performance on in one shared architecture, on multiple datasets. (only 70M trainable parameters)
+
+### $\color{#2F6EBA}{The First\ Open-Sourced\ Universal Segmentation Codebase}$  
+
+- Our codebase support joint image/video/multi-dataset co-training.
+- The first open-sourced code, including training, inference and demo.
+
 
 ## To-Do List
 
@@ -62,13 +83,8 @@ We show that OMG-Seg, a transformer-based encoder-decoder architecture with task
 - Release CKPTs.（done）
 - Support HuggingFace. (done)
 
-## Features
-
-- The first universal model that support image segmentation, video segmentation, open-vocabulary segmentation, multi-dataset segmentation, interactive segmentation. 
-- A new unified view for solving multiple segmentation tasks in one view. 
 
 ## Experiment Set Up
-
 
 ### Dataset 
 
@@ -86,17 +102,27 @@ See [INSTALL.md](./INSTALL.md)
 
 #### Experiment Preparation
 
-1. First set up the [dataset](./DATASET.md) and [environment](./INSTALL.md).
+1. First set up the [dataset](./DATASET.md) and [environment](./INSTALL.md). Make sure you have fixed and corresponding versions. 
 
 2. Download pre-trained CLIP backbone. The scripts will automatically download the pre-trained CLIP models.
 
-3. Generate CLIP text embedding for each dataset. See the [embedding generation](EMB.md). 
+3. Generate CLIP text embedding for each dataset and joint merged dataset for co-training. See the [embedding generation](EMB.md). 
 
-4. Run the scripts below.
+4. Run the train/test scripts below to carry out experiments on model training and testing.
 
 #### Train
 
-To be released and please stay tuned.
+See the configs under seg/configs/m2ov_train.
+
+```commandline
+./tools/dist.sh train seg/configs/m2ov_train/omg_convl_vlm_fix_12e_ov_coco_vid_yt19_vip_city_cocopansam.py  8 --checkpoint pre_trained_model_path
+```
+
+We adopt slurm to train our model with 32 A100 GPUS.
+
+```commandline
+PARTITION=YOUR_PARTITION JOB_NAME=YOUR_JOB_NAME GPUS=32 GPUS_PER_NODE=8 ./tools/slurm.sh train seg/configs/m2ov_train/omg_convl_vlm_fix_12e_ov_coco_vid_yt19_vip_city_cocopansam.py 
+```
 
 #### Test 
 
@@ -145,7 +171,10 @@ ConvNeXt-large backbone. [model](https://drive.google.com/file/d/12cERt0u6sY9A-O
 
 ConvNeXt-XX-large backbone. [model](https://drive.google.com/file/d/1aDIDAq3u2j-FO-bttq-BYMelwhDFESIS/view?usp=sharing)
 
+The Object-365 pretrained models can be found [here](https://drive.google.com/drive/folders/1PXF4lwXRFXjKJcYf-d_52NrvS-h167M7?usp=sharing).
+
 We will release more models in future.
+
 
 ## Citation
 

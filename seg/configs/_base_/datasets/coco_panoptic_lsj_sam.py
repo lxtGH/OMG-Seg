@@ -7,7 +7,7 @@ from mmdet.datasets.transforms import LoadPanopticAnnotations, RandomFlip, Rando
 from mmdet.evaluation import CocoPanopticMetric, CocoMetric
 
 from seg.datasets.coco_pan_sam import CocoPanopticSAMDataset
-from seg.datasets.pipeliens.loading import LoadPanopticAnnotationsHB, FilterAnnotationsHB
+from seg.datasets.pipelines.loading import LoadPanopticAnnotationsHB, FilterAnnotationsHB
 
 data_root = 'data/coco/'
 backend_args = None

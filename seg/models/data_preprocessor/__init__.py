@@ -1,2 +1,2 @@
 from .vidseg_data_preprocessor import VideoSegDataPreprocessor
-from .ovsam_preprocessor import OVSAMDataPreprocessor
+from .ovsam_preprocessor import OVSAMDataPreprocessor, OVSAMVideoSegDataPreprocessor

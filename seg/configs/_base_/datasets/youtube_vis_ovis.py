@@ -5,9 +5,9 @@ from mmengine.dataset import DefaultSampler
 
 
 from seg.datasets.youtube_vis_dataset import YouTubeVISDatasetV2
-from seg.datasets.pipeliens.formatting import PackVidSegInputs
-from seg.datasets.pipeliens.frame_copy import AddSemSeg
-from seg.datasets.pipeliens.frame_sampling import VideoClipSample
+from seg.datasets.pipelines.formatting import PackVidSegInputs
+from seg.datasets.pipelines.frame_copy import AddSemSeg
+from seg.datasets.pipelines.frame_sampling import VideoClipSample
 from seg.datasets.samplers.batch_sampler import VideoSegAspectRatioBatchSampler
 
 dataset_type = YouTubeVISDatasetV2

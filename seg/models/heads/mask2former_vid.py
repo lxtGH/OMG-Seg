@@ -245,7 +245,7 @@ class Mask2FormerVideoHead(AnchorFreeHead):
             self.pos_linear = nn.Linear(2 * feat_channels, feat_channels)
 
     def init_weights(self) -> None:
-        if self.init_cfg['type'] == 'Pretrained':
+        if self.init_cfg is not None and self.init_cfg['type'] == 'Pretrained':
             checkpoint_path = self.init_cfg['checkpoint']
             state_dict = load_checkpoint_with_prefix(checkpoint_path, prefix=self.init_cfg['prefix'])
             msg = self.load_state_dict(state_dict, strict=False)

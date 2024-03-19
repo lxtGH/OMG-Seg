@@ -3,10 +3,10 @@ from mmdet.datasets.transforms import Resize, RandomFlip, RandomCrop
 from mmengine.dataset import DefaultSampler
 
 from seg.datasets.davis import DAVIS
-from seg.datasets.pipeliens.frame_copy import AddSemSeg
-from seg.datasets.pipeliens.loading import LoadVideoSegAnnotations, ResizeOri
-from seg.datasets.pipeliens.formatting import PackVidSegInputs
-from seg.datasets.pipeliens.frame_sampling import VideoClipSample
+from seg.datasets.pipelines.frame_copy import AddSemSeg
+from seg.datasets.pipelines.loading import LoadVideoSegAnnotations, ResizeOri
+from seg.datasets.pipelines.formatting import PackVidSegInputs
+from seg.datasets.pipelines.frame_sampling import VideoClipSample
 from seg.datasets.samplers.batch_sampler import VideoSegAspectRatioBatchSampler
 from seg.evaluation.metrics.vos_metric import VOSMetric
 

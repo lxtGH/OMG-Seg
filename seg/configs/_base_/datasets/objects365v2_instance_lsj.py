@@ -6,7 +6,7 @@ from mmdet.datasets.transforms import LoadAnnotations
 from mmdet.evaluation import CocoMetric
 from mmengine.dataset import DefaultSampler
 
-from seg.datasets.pipeliens.frame_copy import AddSemSeg
+from seg.datasets.pipelines.frame_copy import AddSemSeg
 from seg.datasets.objects365 import Objects365V2InsDataset
 
 dataset_type = Objects365V2InsDataset

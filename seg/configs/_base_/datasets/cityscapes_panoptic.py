@@ -5,7 +5,7 @@ from mmengine.dataset import DefaultSampler
 from mmdet.datasets import AspectRatioBatchSampler
 from mmdet.datasets.transforms import RandomFlip, RandomCrop, PackDetInputs, Resize
 
-from seg.datasets.pipeliens.loading import LoadPanopticAnnotationsHB
+from seg.datasets.pipelines.loading import LoadPanopticAnnotationsHB
 from seg.datasets.cityscapes import CityscapesPanopticDataset
 from seg.evaluation.metrics.cityscapes_panoptic_metric import CityscapesPanopticMetric
 

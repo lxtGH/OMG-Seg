@@ -18,7 +18,7 @@ Install mmengine:
 python -m pip install https://github.com/open-mmlab/mmengine/archive/refs/tags/v0.8.5.zip
 ```
 
-Install mmcv:
+Install mmcv: (Make sure you use the correct mmcv version as our default setting)
 ```commandline
 TORCH_CUDA_ARCH_LIST="8.0" TORCH_NVCC_FLAGS="-Xfatbin -compress-all" CUDA_HOME=$(dirname $(dirname $(which nvcc))) LD_LIBRARY_PATH=$(dirname $(dirname $(which nvcc)))/lib MMCV_WITH_OPS=1 FORCE_CUDA=1 python -m pip install git+https://github.com/open-mmlab/mmcv.git@4f65f91db6502d990ce2ee5de0337441fb69dd10
 ```

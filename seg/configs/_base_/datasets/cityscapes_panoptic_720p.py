@@ -2,16 +2,17 @@
 from mmcv.transforms import LoadImageFromFile, RandomResize
 from mmengine.dataset import DefaultSampler
 
-from mmdet.datasets import AspectRatioBatchSampler, CocoPanopticDataset
-from mmdet.datasets.transforms import LoadPanopticAnnotations, RandomFlip, RandomCrop, PackDetInputs, Resize
-from mmdet.evaluation import CocoPanopticMetric, CocoMetric
+from mmdet.datasets import AspectRatioBatchSampler
+from mmdet.datasets.transforms import RandomFlip, RandomCrop, PackDetInputs, Resize
+from mmdet.evaluation import CocoPanopticMetric
 
-from seg.datasets.coco_ov import CocoPanopticOVDataset
 from seg.datasets.pipelines.loading import LoadPanopticAnnotationsHB
+from seg.datasets.cityscapes import CityscapesPanopticDataset
 
-data_root = 'data/coco/'
+
+data_root = 'data/cityscapes/'
 backend_args = None
-image_size = (1024, 1024)
+image_size = (1280, 736)
 
 train_pipeline = [
     dict(
@@ -29,7 +30,7 @@ train_pipeline = [
         type=RandomResize,
         resize_type=Resize,
         scale=image_size,
-        ratio_range=(0.1, 2.0),
+        ratio_range=(.8, 1.5),
         keep_ratio=True,
     ),
     dict(
@@ -47,10 +48,11 @@ train_dataloader = dict(
     sampler=dict(type=DefaultSampler, shuffle=True),
     batch_sampler=dict(type=AspectRatioBatchSampler),
     dataset=dict(
-        type=CocoPanopticOVDataset,
+        type=CityscapesPanopticDataset,
         data_root=data_root,
-        ann_file='annotations/panoptic_train2017.json',
-        data_prefix=dict(img='train2017/', seg='annotations/panoptic_train2017/'),
+        ann_file='annotations/cityscapes_panoptic_train_trainId.json',
+        data_prefix=dict(img='leftImg8bit/train/',
+                         seg='annotations/cityscapes_panoptic_train_trainId/'),
         filter_cfg=dict(filter_empty_gt=True, min_size=32),
         pipeline=train_pipeline,
         backend_args=backend_args
@@ -59,8 +61,8 @@ train_dataloader = dict(
 
 test_pipeline = [
     dict(type=LoadImageFromFile, backend_args=backend_args),
-    dict(type=Resize, scale=(1333, 800), keep_ratio=True),
-    dict(type=LoadPanopticAnnotations, backend_args=backend_args),
+    dict(type=Resize, scale=(2560, 640), keep_ratio=True),
+    dict(type=LoadPanopticAnnotationsHB, backend_args=backend_args),
     dict(
         type=PackDetInputs,
         meta_keys=('img_id', 'img_path', 'ori_shape', 'img_shape', 'scale_factor')
@@ -73,10 +75,11 @@ val_dataloader = dict(
     drop_last=False,
     sampler=dict(type=DefaultSampler, shuffle=False),
     dataset=dict(
-        type=CocoPanopticDataset,
+        type=CityscapesPanopticDataset,
         data_root=data_root,
-        ann_file='annotations/panoptic_val2017.json',
-        data_prefix=dict(img='val2017/', seg='annotations/panoptic_val2017/'),
+        ann_file='annotations/cityscapes_panoptic_val_trainId.json',
+        data_prefix=dict(img='leftImg8bit/val/',
+                         seg='annotations/cityscapes_panoptic_val_trainId/'),
         test_mode=True,
         pipeline=test_pipeline,
         backend_args=backend_args
@@ -84,18 +87,10 @@ val_dataloader = dict(
 )
 test_dataloader = val_dataloader
 
-val_evaluator = [
-    dict(
-        type=CocoPanopticMetric,
-        ann_file=data_root + 'annotations/panoptic_val2017.json',
-        seg_prefix=data_root + 'annotations/panoptic_val2017/',
-        backend_args=backend_args
-    ),
-    dict(
-        type=CocoMetric,
-        ann_file=data_root + 'annotations/instances_val2017.json',
-        metric=['segm'],
-        backend_args=backend_args
-    )
-]
+val_evaluator = dict(
+    type=CocoPanopticMetric,
+    ann_file=data_root + 'annotations/cityscapes_panoptic_val_trainId.json',
+    seg_prefix=data_root + 'annotations/cityscapes_panoptic_val_trainId/',
+    backend_args=backend_args
+)
 test_evaluator = val_evaluator

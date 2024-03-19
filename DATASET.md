@@ -31,8 +31,6 @@ The default setting as mmdetection.
 ```
 
 
-
-
 ### [VIS] Youtube-VIS (2019/2021) dataset 
 
 ```
