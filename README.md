@@ -24,11 +24,15 @@
     .
     <a href="https://www.mmlab-ntu.com/person/ccloy/"><strong>Chen Change Loy</strong></a>
   </p>
-  Xiangtai is the project leader and corresponding author.
+  
   <p align="center">
     S-Lab, MMlab@NTU, Shanghai AI Laboratory
   </p>
-
+  
+   <p align="center">
+    Xiangtai is the project leader and corresponding author.
+  </p>
+  
   <p align="center">
     <a href='https://arxiv.org/abs/2401.10229'>
       <img src='https://img.shields.io/badge/Paper-PDF-green?style=flat&logo=arXiv&logoColor=green' alt='arXiv PDF'> </a>
