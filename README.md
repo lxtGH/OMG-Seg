@@ -5,7 +5,7 @@
   <p align="center">
     CVPR, 2024
     <br />
-    <a href="https://lxtgh.github.io/"><strong>Xiangtai Li</strong></a>
+    <a href="https://lxtgh.github.io/"><strong>Xiangtai Li (Project Leader and Corresponding Author)</strong></a>
     ·
     <a href="https://yuanhaobo.me/"><strong>Haobo Yuan</strong></a>
     .
@@ -22,7 +22,7 @@
     .
     <a href="https://hellock.github.io/"><strong>Kai Chen</strong></a>
     .
-    <a href="https://www.mmlab-ntu.com/person/ccloy/"><strong>Chen Change Loy*</strong></a>
+    <a href="https://www.mmlab-ntu.com/person/ccloy/"><strong>Chen Change Loy</strong></a>
   </p>
 
   <p align="center">
