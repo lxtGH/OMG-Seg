@@ -75,7 +75,7 @@ We show that OMG-Seg, a transformer-based encoder-decoder architecture with task
 
 - Achieves good performance on in one shared architecture, on multiple datasets. (only 70M trainable parameters)
 
-### $\color{#2F6EBA}{The First\ Open-Sourced\ Universal Segmentation Codebase}$  
+### $\color{#2F6EBA}{The\ First\ Open-Sourced\ Universal\ Segmentation\ Codebase}$  
 
 - Our codebase support joint image/video/multi-dataset co-training.
 - The first open-sourced code, including training, inference and demo.
