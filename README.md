@@ -82,9 +82,10 @@ We rigorously evaluate the inter-task influences and correlations during co-trai
 - The first open-sourced code, including training, inference and demo.
 
 
-## To-Do List
+## To-Do Plans
 
-- Release training code. (to be done)
+- Release Strong Models and Demos. (To be Done)
+- Release training code. (done)
 - Release CKPTs.（done）
 - Support HuggingFace. (done)
 
