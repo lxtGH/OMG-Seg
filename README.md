@@ -54,14 +54,15 @@ In this work, we address various segmentation tasks, each traditionally tackled 
 We propose OMG-Seg, One Model that is Good enough to efficiently and effectively handle all the Segmentation tasks, including image semantic, instance, and panoptic segmentation, as well as their video counterparts, open vocabulary settings, prompt-driven, interactive segmentation like SAM, and video object segmentation.
 To our knowledge, this is **the first model** to fill all these tasks in one model and achieve good enough performance.
 
-We show that OMG-Seg, a transformer-based encoder-decoder architecture with task-specific queries and outputs, can support over ten distinct segmentation tasks and yet significantly reduce computational and parameter overhead across various tasks and datasets. We rigorously evaluate the inter-task influences and correlations during co-training. Both the code and models will be publicly available.
+We show that OMG-Seg, a transformer-based encoder-decoder architecture with task-specific queries and outputs, can support over ten distinct segmentation tasks and yet significantly reduce computational and parameter overhead across various tasks and datasets. 
+We rigorously evaluate the inter-task influences and correlations during co-training. Both the code and models will be publicly available.
 
 
 ## News !!
 
 - 2024-3-18, Training Code of OMG-Seg are released !! Stronger Performance using Object-365-instance segmentation pre-train !!
-- 2024-2-26， OMG-Seg is accepted by CVPR-2024 !!
-- 2024-1-19， Models and Test Code are released !!
+- 2024-2-26，OMG-Seg is accepted by CVPR-2024 !!
+- 2024-1-19, Models and Test Code are released !!
 
 
 ## Features
@@ -71,11 +72,11 @@ We show that OMG-Seg, a transformer-based encoder-decoder architecture with task
 - A new unified solution for over ten different segmentation tasks: PS, IS, VSS, VIS, VPS, Open-Vocabulary Seg, and Interactive Segmentation.
 - A novel unified view for solving multiple segmentation tasks in one view.
 
-### $\color{#2F6EBA}{Good\ Performance}$  
+### $\color{#2F6EBA}{Good\ Enough\ Performance}$  
 
-- Achieves good performance on in one shared architecture, on multiple datasets. (only 70M trainable parameters)
+- OMG-Seg achieves good performance on in one shared architecture, on multiple datasets. (only 70M trainable parameters)
 
-### $\color{#2F6EBA}{The\ First\ Open-Sourced\ Universal\ Segmentation\ Codebase}$  
+### $\color{#2F6EBA}{The\ First\ OpenSourced\ Universal\ Segmentation\ Codebase}$  
 
 - Our codebase support joint image/video/multi-dataset co-training.
 - The first open-sourced code, including training, inference and demo.
@@ -120,6 +121,12 @@ See the configs under seg/configs/m2ov_train.
 
 ```commandline
 ./tools/dist.sh train seg/configs/m2ov_train/omg_convl_vlm_fix_12e_ov_coco_vid_yt19_vip_city_cocopansam.py  8 --checkpoint pre_trained_model_path
+```
+
+Note that you can also use CLIP pre-trained models, by running the following command.
+
+```commandline
+./tools/dist.sh train seg/configs/m2ov_train/omg_convl_vlm_fix_12e_ov_coco_vid_yt19_vip_city_cocopansam.py  8 
 ```
 
 We adopt slurm to train our model with 32 A100 GPUS.
