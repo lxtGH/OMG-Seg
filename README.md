@@ -61,7 +61,7 @@ We rigorously evaluate the inter-task influences and correlations during co-trai
 ## News !!
 
 - 2024-3-18, Training Code of OMG-Seg are released !! Stronger Performance using Object-365-instance segmentation pre-train !!
-- 2024-2-26，OMG-Seg is accepted by CVPR-2024 !!
+- 2024-2-26, OMG-Seg is accepted by CVPR-2024 !!
 - 2024-1-19, Models and Test Code are released !!
 
 
@@ -138,7 +138,7 @@ PARTITION=YOUR_PARTITION JOB_NAME=YOUR_JOB_NAME GPUS=32 GPUS_PER_NODE=8 ./tools/
 
 #### Test 
 
-See the configs under seg/configs/m2ov_val.
+See the configs under seg/configs/m2ov_val. Make sure you have set up the classification embeddings for testing.
 
 Test Cityscape dataset, we observe 0.3% noises for Cityscapes panoptic segmentation
 
