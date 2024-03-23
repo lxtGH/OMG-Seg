@@ -17,27 +17,48 @@ The default setting as mmdetection.
 
 ### [PS] Cityscapes dataset
 
+Please use the scripts in ext/cityscapes_scripts/createPanopticImgs.py to generate COCO-style cityscape panoptic segmentation format.
+
+```commandline
+python ext/cityscapes_scripts/createPanopticImgs.py --dataset-folder ./data/cityscapes --output-folder ./data/cityscapes
+```
+
+
 ```
 ├── cityscapes
 │   ├── annotations
-│   │   ├── instancesonly_filtered_gtFine_train.json # coco instance annotation file(COCO format)
-│   │   ├── instancesonly_filtered_gtFine_val.json
-│   │   ├── cityscapes_panoptic_train.json  # panoptic json file 
-│   │   ├── cityscapes_panoptic_val.json  
-│   ├── leftImg8bit
-│   ├── gtFine
-│   │   ├──cityscapes_panoptic_{train,val}/  # png annotations
+│   │   ├── cityscapes_panoptic_train_trainId.json  # panoptic json file 
+│   │   ├── cityscapes_panoptic_val_trainId.json 
+│   │   ├── cityscapes_panoptic_train_trainId # panoptic png file
+│   │   ├── cityscapes_panoptic_val_trainId # panoptic png file
+│   ├── leftImg8bit # training images
+│   ├── gtFine # origin gt files 
+│   │   ├──
 │   │   
 ```
 
 
 ### [VIS] Youtube-VIS (2019/2021) dataset 
 
+
+Use the scripts tools/dataset_convert/vis_to_coco.py to convert origin json to COCO-style.
+
+```commandline
+python tools/dataset_convert/vis_to_coco.py -i ./data/youtubevis2019 --version 2019
+```
+
+```commandline
+python tools/dataset_convert/vis_to_coco.py -i ./data/youtubevis2021 --version 2021
+```
+
+
+The final results are shown here:
+
 ```
 ├── youtubevis2019
 │   ├── annotations
-│   │   ├── train.json
-│   │   ├── valid.json
+│   │   ├── youtube_vis_2019_train.json
+│   │   ├── youtube_vis_2019_valid.json
 │   ├── train
 │   │   ├──JPEGImages
 │   │   │   ├──video folders
@@ -49,8 +70,8 @@ The default setting as mmdetection.
 ```
 ├── youtubevis2021
 │   ├── annotations
-│   │   ├── train.json
-│   │   ├── valid.json
+│   │   ├── youtube_vis_2021_train.json
+│   │   ├── youtube_vis_2021_valid.json
 │   ├── train
 │   │   ├──JPEGImages
 │   │   │   ├──video folders
@@ -59,10 +80,11 @@ The default setting as mmdetection.
 │   │   │   ├──video folders
 ```
 
+
 ### [VPS] VIPSeg dataset
 
 Download the origin dataset from the official repo.\
-Following official repo, we use resized videos for training and evaluation (The short size of the input is set to 720 while the ratio is keeped).
+Following official repo, we use resized videos for training and evaluation (The short size of the input is set to 720).
 
 ```
 ├── VIPSeg
@@ -89,6 +111,11 @@ The default setting as mmdet
 │   │   ├── ade20k_panoptic_train.json
 │   │   ├── ade20k_panoptic_val.json
 ```
+
+### [VOS] DAVIS dataset
+
+Please download DAVIS datasets as default.
+
 
 Finally, link the download the dataset into the data folder as 
 
