@@ -36,7 +36,6 @@ https://github.com/open-mmlab/mmsegmentation/archive/refs/tags/v1.1.1.zip \
 https://github.com/open-mmlab/mmpretrain/archive/refs/tags/v1.0.1.zip
 ```
 
-
 Install extra packages:
 ```commandline
 python -m pip install git+https://github.com/cocodataset/panopticapi.git \

@@ -36,13 +36,13 @@ We adopt the merged dataset embedding for training.
 ./tools/dish.sh gen_cls seg/configs/m2ov_train/omg_convl_vlm_fix_24e_ov_coco_vid_yt19_vip_city_cocopansam.py 1
 ```
 
-Once you finish converting the embedding, you will obtain the 
+Once you finish converting the embedding, you will obtain the embedding file in your cache folder.
 
 ### Download Pre-trained Open-ClIP models.
 
 When generating the class embedding classifier, the scripts will automatically download the pre-trained CLIP models.
 
-If you are in China, you can use [HF-Mirror](https://hf-mirror.com/). 
+If you are in China, you can use [HF-Mirror](https://hf-mirror.com/). Follow the step to set the default path.
 
 ```commandline
 pip install -U huggingface_hub

@@ -1,4 +1,10 @@
 # Copyright (c) OpenMMLab. All rights reserved.
+
+# #1 the checkpoint is moved to --checkpoint and also supports no input
+# #2 add training and testing overlapping calculator
+# #3 init_weights if not loaded
+# #4 class overlapping
+
 import argparse
 import copy
 import os
@@ -18,12 +24,6 @@ from mmdet.utils import setup_cache_size_limit_of_dynamo
 
 from seg.models.utils import calculate_class_overlapping
 
-
-# Haobo Yuan:
-# #1 the checkpoint is moved to --checkpoint and also supports no input
-# #2 add training and testing overlapping calculator
-# #3 init_weights if not loaded
-# #4 class overlapping
 
 # TODO: support fuse_conv_bn and format_only
 def parse_args():

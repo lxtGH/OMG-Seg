@@ -57,34 +57,39 @@ To our knowledge, this is **the first model** to fill all these tasks in one mod
 We show that OMG-Seg, a transformer-based encoder-decoder architecture with task-specific queries and outputs, can support over ten distinct segmentation tasks and yet significantly reduce computational and parameter overhead across various tasks and datasets. 
 We rigorously evaluate the inter-task influences and correlations during co-training. Both the code and models will be publicly available.
 
+Short introduction on VALSE of OMG-Seg with other related work, can be found [here](https://www.bilibili.com/video/BV1PZ421b7U7/?spm_id_from=333.337.search-card.all.click&vd_source=6bb672e5bcff6f43a998d1ba30743967), in Chinese.
 
 ## News !!
 
-- 2024-3-18, Training Code of OMG-Seg are released !! Stronger Performance using Object-365-instance segmentation pre-train !!
-- 2024-2-26, OMG-Seg is accepted by CVPR-2024 !!
+- 🔥2023-4-06, Update the model trained with only one machine and demo scripts.
+- 🔥2024-3-18, Training Code of OMG-Seg are released !! Stronger Performance using Object-365-instance segmentation pre-train !!
+- 🔥2024-2-26, OMG-Seg is accepted by CVPR-2024 !!
 - 2024-1-19, Models and Test Code are released !!
 
 
-## Features
+## Features of OMG-Seg
 
 ### $\color{#2F6EBA}{Universal\ Image\, Video\, Open-Vocabulary\, Segmentation\ Model}$ 
 
-- A new unified solution for over ten different segmentation tasks: PS, IS, VSS, VIS, VPS, Open-Vocabulary Seg, and Interactive Segmentation.
-- A novel unified view for solving multiple segmentation tasks in one view.
+- A **new unified** solution for **over ten different segmentation tasks**: PS, IS, VSS, VIS, VPS, Open-Vocabulary Seg, and Interactive Segmentation.
+- A novel unified view for solving multiple segmentation tasks in one model with extremely less parameters.
 
 ### $\color{#2F6EBA}{Good\ Enough\ Performance}$  
 
-- OMG-Seg achieves good performance on in one shared architecture, on multiple datasets. (only 70M trainable parameters)
+- OMG-Seg achieves **good enough performance** on in one shared architecture, on multiple datasets. (**only 70M trainable parameters**)
 
 ### $\color{#2F6EBA}{The\ First\ OpenSourced\ Universal\ Segmentation\ Codebase}$  
 
-- Our codebase support joint image/video/multi-dataset co-training.
-- The first open-sourced code, including training, inference and demo.
+- Our codebase support **joint image/video/multi-dataset co-training**.
+- The first open-sourced codebase, including training, inference and demo.
 
+### $\color{#2F6EBA}{Easy\ \ Followed\ By\ Academic\ Lab}$  
+
+- OMG-Seg can be reproduced by only **one 32GB V100 or 40GB A100 machine**, which can be followed by Academic Labs.
 
 ## To-Do Plans
 
-- Release Strong Models and Demos. (To be Done)
+- Release Strong Models. (To be Done)
 - Release training code. (done)
 - Release CKPTs.（done）
 - Support HuggingFace. (done)
@@ -136,6 +141,25 @@ We adopt slurm to train our model with 32 A100 GPUS.
 PARTITION=YOUR_PARTITION JOB_NAME=YOUR_JOB_NAME GPUS=32 GPUS_PER_NODE=8 ./tools/slurm.sh train seg/configs/m2ov_train/omg_convl_vlm_fix_12e_ov_coco_vid_yt19_vip_city_cocopansam.py 
 ```
 
+
+#### Demo Scripts
+
+Run the visualization scripts on COCO
+
+```commandline
+./tools/dist.sh test seg/configs/m2ov_val/eval_m2_convl_300q_ov_coco.py 1 --checkpoint model_path --show-dir vis
+```
+
+
+Run the visualization scripts on VIPSeg
+
+```commandline
+./tools/dist.sh test seg/configs/m2ov_val/eval_m2_convl_300q_ov_vipseg.py 1 --checkpoint model_path --show-dir vis
+```
+
+The color maps are dumped in the sub-folder vis in work_dir. 
+
+
 #### Test 
 
 See the configs under seg/configs/m2ov_val. Make sure you have set up the classification embeddings for testing.
@@ -184,6 +208,7 @@ ConvNeXt-XX-large backbone. [model](https://drive.google.com/file/d/1aDIDAq3u2j-
 
 The Object-365 pretrained models can be found [here](https://drive.google.com/drive/folders/1PXF4lwXRFXjKJcYf-d_52NrvS-h167M7?usp=sharing).
 
+Using one machine to re-run our codebase, ConvNeXt-large backbone. [model](https://drive.google.com/file/d/1N-tXSSeeV99qQ55tWyBOdHuwnrzzJUJ6/view?usp=sharing), [log](https://drive.google.com/file/d/1_CzTh0UtKcNUdIfHlV9F1IsmzDTA0JyY/view?usp=sharing).
 
 
 ## Citation
