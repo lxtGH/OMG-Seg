@@ -4,7 +4,7 @@ Our goal is to solve multiple fundamental visual perception, visual reasoning, a
 in one shot.
 
 
-### Short Introduction of OMG-LLaVA, [arxiv]()
+### Short Introduction of OMG-LLaVA, [arxiv](https://arxiv.org/abs/2406.19389), [Project Page](https://lxtgh.github.io/project/omg_llava/)
 
 We present OMG-LLaVA, a new and elegant framework combining powerful pixel-level vision understanding with reasoning abilities. 
 It can accept various visual and text prompts for flexible user interaction. Specifically, we use a universal segmentation method as the visual encoder, integrating image information, perception priors, and visual prompts into visual tokens provided to the LLM.
@@ -13,7 +13,7 @@ The LLM is responsible for understanding the user's text instructions and provid
 OMG-LLaVA achieves image-level, object-level, and pixel-level reasoning and understanding in a single model, matching or surpassing the performance of specialized methods on multiple benchmarks. 
 Rather than using LLM to connect each specialist, our work aims at end-to-end training on one encoder, one decoder, and one LLM.
 
-### Short Introduction of OMG-Seg, [arxiv](https://arxiv.org/abs/2401.10229)
+### Short Introduction of OMG-Seg, [arxiv](https://arxiv.org/abs/2401.10229), [Project Page](https://lxtgh.github.io/project/omg_seg/)
 
 We address various segmentation tasks, each traditionally tackled by distinct or partially unified models. 
 We propose OMG-Seg, One Model that is Good enough to efficiently and effectively handle all the Segmentation tasks, including image semantic, instance, and panoptic segmentation, as well as their video counterparts, open vocabulary settings, prompt-driven, interactive segmentation like SAM, and video object segmentation.
