@@ -95,12 +95,6 @@ class OMGSegVisualEncoder(Mask2formerVideo):
         )
         return torch.cat([query_feat, query_embed], dim=-1)
 
-    def forward_point_sam(self, points, batch_idxs, width, height):
-        query_feat, query_embed = self.panoptic_head.forward_box_prompt(
-            points, batch_idxs, width=width, height=height
-        )
-        return torch.cat([query_feat, query_embed], dim=-1)
-
     def loss_llm_seg(self, mask_pred_results, gt_masks):
         all_loss_dice, all_loss_mask = self.panoptic_head.llm_seg_loss(
             mask_pred_results, gt_masks,
