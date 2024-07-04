@@ -1154,6 +1154,12 @@ class Mask2FormerVideoSemSamHead(AnchorFreeHead):
         attn_mask = attn_mask.detach()
         return ~attn_mask
 
+    def get_targets(self, **kwargs):
+        return
+
+    def loss_by_feat(self, **kwargs):
+        return
+
 
 def get_center_coords(masks):
     point_coords = []

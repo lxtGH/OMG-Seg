@@ -114,8 +114,13 @@ Put the weights to `./pretrained/omg_llava/`
       ${PATH_TO_CONFIG} \
       --deepspeed deepspeed_zero2
   
-  # examples
+  # after train, please use the tools to convert deepspeed chekpoint to pth format
+  PYTHONPATH=. python omg_llava/tools/convert_deepspeed2pth.py
+      ${PATH_TO_CONFIG} \
+      ${PATH_TO_DeepSpeed_PTH} \
+      --save-path ./pretrained/omg_llava/${PTH_NAME.pth}
   
+  # examples
   # OMG-LLaVA pretrain    
   PYTHONPATH=. NPROC_PER_NODE=8 xtuner train \
       omg_llava/configs/pretrain/omg_llava_7b_pretrain_8gpus.py \
