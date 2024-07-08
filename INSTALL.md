@@ -19,14 +19,14 @@ python -m pip install https://github.com/open-mmlab/mmengine/archive/refs/tags/v
 ```
 
 Install mmcv: (Make sure you use the correct mmcv version as our default setting)
+
+Please see the doc here to find your matched mmcv version. [doc](https://mmcv.readthedocs.io/en/latest/get_started/installation.html).
+You can install pre-build mmcv for easier usage. Make sure your mmdetection is v3.1.0 version.
+
+Here, we provide our experimental mmcv version.
 ```commandline
 TORCH_CUDA_ARCH_LIST="8.0" TORCH_NVCC_FLAGS="-Xfatbin -compress-all" CUDA_HOME=$(dirname $(dirname $(which nvcc))) LD_LIBRARY_PATH=$(dirname $(dirname $(which nvcc)))/lib MMCV_WITH_OPS=1 FORCE_CUDA=1 python -m pip install git+https://github.com/open-mmlab/mmcv.git@4f65f91db6502d990ce2ee5de0337441fb69dd10
 ```
-also try with
-```commandline
-MMCV_CUDA_ARGS="-std=c++17" 
-```
-when using mmcv 1.x with Pytorch 1.12.1 or later version
 
 Install other openmmlab packages:
 ```commandline
