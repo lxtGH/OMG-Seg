@@ -4,7 +4,17 @@ Our goal is to solve multiple fundamental visual perception, visual reasoning, a
 in one shot.
 
 
-### Short Introduction of OMG-LLaVA, [arxiv](https://arxiv.org/abs/2406.19389), [Project Page](https://lxtgh.github.io/project/omg_llava/)
+### Short Introduction of OMG-LLaVA, [arxiv](https://arxiv.org/abs/2406.19389), [Project Page](https://lxtgh.github.io/project/omg_llava/), [Introduction by Fahd Mirza](https://www.youtube.com/watch?v=A4CWwgrxvSE)
+  <p align="center">
+    <a href='https://arxiv.org/abs/2406.19389'>
+      <img src='https://img.shields.io/badge/Paper-PDF-green?style=flat&logo=arXiv&logoColor=green' alt='arXiv PDF'> </a>
+    <a href='https://lxtgh.github.io/project/omg_llava/' style='padding-left: 0.5rem;'>
+      <img src='https://img.shields.io/badge/Project-Page-blue?style=flat&logo=Google%20chrome&logoColor=blue' alt='Project Page'> </a>
+    <a href='https://huggingface.co/zhangtao-whu/OMG-LLaVA' style='padding-left: 0.5rem;'>
+      <img src='https://img.shields.io/badge/Huggingface%20Model-8A2BE2' alt='Project Page'> </a>
+    <a href="https://huggingface.co/spaces/LXT/OMG_LLaVA">
+    <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-App-blue' alt='HuggingFace Model'> </a>
+  </p>
 
 We present OMG-LLaVA, a new and elegant framework combining powerful pixel-level vision understanding with reasoning abilities. 
 It can accept various visual and text prompts for flexible user interaction. Specifically, we use a universal segmentation method as the visual encoder, integrating image information, perception priors, and visual prompts into visual tokens provided to the LLM.
@@ -13,11 +23,20 @@ The LLM is responsible for understanding the user's text instructions and provid
 OMG-LLaVA achieves image-level, object-level, and pixel-level reasoning and understanding in a single model, matching or surpassing the performance of specialized methods on multiple benchmarks. 
 Rather than using LLM to connect each specialist, our work aims at end-to-end training on one encoder, one decoder, and one LLM.
 
-### Short Introduction of OMG-Seg, [arxiv](https://arxiv.org/abs/2401.10229), [Project Page](https://lxtgh.github.io/project/omg_seg/)
-
+### Short Introduction of OMG-Seg, [arxiv](https://arxiv.org/abs/2401.10229), [Project Page](https://lxtgh.github.io/project/omg_seg/), [Report By viso.ai](https://viso.ai/computer-vision/omg-seg/)
+  <p align="center">
+    <a href='https://arxiv.org/abs/2401.10229'>
+      <img src='https://img.shields.io/badge/Paper-PDF-green?style=flat&logo=arXiv&logoColor=green' alt='arXiv PDF'> </a>
+    <a href='https://lxtgh.github.io/project/omg_seg/' style='padding-left: 0.5rem;'>
+      <img src='https://img.shields.io/badge/Project-Page-blue?style=flat&logo=Google%20chrome&logoColor=blue' alt='Project Page'> </a>
+    <a href='https://huggingface.co/LXT/OMG_Seg' style='padding-left: 0.5rem;'>
+      <img src='https://img.shields.io/badge/Huggingface%20Model-8A2BE2' alt='Project Page'> </a>
+    <a href="https://huggingface.co/spaces/LXT/OMG_Seg">
+    <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-App-blue' alt='HuggingFace Model'> </a>
+  </p>
 We address various segmentation tasks, each traditionally tackled by distinct or partially unified models. 
 We propose OMG-Seg, One Model that is Good enough to efficiently and effectively handle all the Segmentation tasks, including image semantic, instance, and panoptic segmentation, as well as their video counterparts, open vocabulary settings, prompt-driven, interactive segmentation like SAM, and video object segmentation.
-To our knowledge, this is **the first model** to fill all these tasks in one model and achieve good enough performance.
+To our knowledge, this is the first model to fill all these tasks in one model and achieve good enough performance.
 
 We show that OMG-Seg, a transformer-based encoder-decoder architecture with task-specific queries and outputs, can support over ten distinct segmentation tasks and yet significantly reduce computational and parameter overhead across various tasks and datasets. 
 We rigorously evaluate the inter-task influences and correlations during co-training. Both the code and models will be publicly available.
@@ -72,13 +91,13 @@ Short introduction on VALSE of OMG-Seg with other SAM-like works, can be found [
 ## To-Do Lists 
 
 - Add more easy-used tutorial. ()
-- Release OMG-LLaVA Models. ()
+- Release OMG-LLaVA Models. (Done)
 - Release OMG-Seg Strong Models. (Done)
 - Release OMG-Seg training code. (Done)
 - Support HuggingFace. (Done)
 
 
-## How to Run this Codebase
+## How to use this Codebase
 
 For OMG-Seg, please see the [OMG_Seg_README.md](./OMG_Seg_README.md)
 
@@ -88,7 +107,6 @@ For OMG-LLaVA, please see the [OMG_LLaVA_README.md](./omg_llava/OMG_LLaVA_README
 ## Citation
 
 If you think our codebases and works are useful for your research, please consider referring us:
-
 
 
 ```bibtex
