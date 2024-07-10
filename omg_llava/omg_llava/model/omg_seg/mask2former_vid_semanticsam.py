@@ -1061,6 +1061,9 @@ class Mask2FormerVideoSemSamHead(AnchorFreeHead):
                 cur_scale_bboxes[:, 2:] += 1
                 cur_scale_bboxes = torch.Tensor(np.floor(cur_scale_bboxes))
                 cur_scale_bboxes = cur_scale_bboxes.to(torch.int64)
+                print(cur_scale_bboxes)
+                print(attn_mask.shape)
+                print('----------------------------')
                 for i in range(bs):
                     sx, sy = cur_scale_bboxes[i][0], cur_scale_bboxes[i][1]
                     ex, ey = cur_scale_bboxes[i][2], cur_scale_bboxes[i][3]
