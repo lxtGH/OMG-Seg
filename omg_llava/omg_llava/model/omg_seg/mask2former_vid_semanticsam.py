@@ -1166,7 +1166,7 @@ class Mask2FormerVideoSemSamHead(AnchorFreeHead):
 
         # regions (N, H, W)
         points = (boxes[:, :2] + boxes[:, 2:]) / 2.0
-        boxes_rela_coords = copy.deepcopy(boxes)
+        boxes_rela_coords = copy.deepcopy(boxes) * 1.0
         boxes_rela_coords[:, [0, 2]] /= width
         boxes_rela_coords[:, [1, 3]] /= height
 
