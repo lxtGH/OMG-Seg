@@ -27,6 +27,7 @@ from .utils import mask_pool
 preprocess_video_panoptic_gt = None
 from kornia.contrib import distance_transform
 from omg_llava.model.modules.projector.modeling_projector import CrossAttentionLayer, FFNLayer
+import numpy as np
 
 @MODELS.register_module()
 class Mask2FormerVideoSemSamHead(AnchorFreeHead):
@@ -998,7 +999,8 @@ class Mask2FormerVideoSemSamHead(AnchorFreeHead):
 
     def _forward_head_sam(self, decoder_out: Tensor, mask_feature: Tensor,
                       attn_mask_target_size: Tuple[int, int],
-                      num_frames: int = 0, regions=None) -> Tuple[Tensor]:
+                      num_frames: int = 0, regions=None, bboxes=None
+        ) -> Tuple[Tensor]:
         """Forward for head part which is called after every decoder layer.
 
         Args:
@@ -1047,6 +1049,26 @@ class Mask2FormerVideoSemSamHead(AnchorFreeHead):
                     attn_mask_target_size,
                     mode='bilinear',
                     align_corners=False)
+
+            # set attn maps
+            if bboxes is not None:
+                cur_scale_bboxes = copy.deepcopy(bboxes.cpu().numpy())
+                bs, _, h, w = attn_mask.shape
+                assert len(bboxes) == bs
+                cur_scale_bboxes = np.clip(cur_scale_bboxes, a_min=0, a_max=1)
+                cur_scale_bboxes[:, [0, 2]] *= w
+                cur_scale_bboxes[:, [1, 3]] *= h
+                cur_scale_bboxes[:, 2:] += 1
+                cur_scale_bboxes = torch.Tensor(np.floor(cur_scale_bboxes))
+                cur_scale_bboxes = cur_scale_bboxes.to(torch.int64)
+                for i in range(bs):
+                    sx, sy = cur_scale_bboxes[i][0], cur_scale_bboxes[i][1]
+                    ex, ey = cur_scale_bboxes[i][2], cur_scale_bboxes[i][3]
+                    attn_mask[i, :, :sy, :] = True
+                    attn_mask[i, :, ey:, :] = True
+                    attn_mask[i, :, :, :sx] = True
+                    attn_mask[i, :, :, ex:] = True
+
             # shape (num_queries, batch_size, h, w) ->
             #   (batch_size * num_head, num_queries, h, w)
             attn_mask = attn_mask.flatten(2).unsqueeze(1).repeat(
@@ -1132,6 +1154,95 @@ class Mask2FormerVideoSemSamHead(AnchorFreeHead):
             mask_pred, attn_mask = self._forward_head_sam(
                 query_feat, mask_features, multi_scale_memorys[(i + 1) % self.num_transformer_feat_level].shape[-2:],
                 num_frames=num_frames
+            )
+
+            if num_frames > 0:
+                mask_pred = mask_pred.unflatten(2, (num_frames, -1))
+            mask_pred_list.append(mask_pred)
+
+        return query_feat, query_embed
+
+    def forward_box_prompt(self, boxes, batch_idxs, width, height):
+
+        # regions (N, H, W)
+        points = (boxes[:, :2] + boxes[:, 2:]) / 2.0
+        boxes_rela_coords = copy.deepcopy(boxes)
+        boxes_rela_coords[:, [0, 2]] /= width
+        boxes_rela_coords[:, [1, 3]] /= height
+
+        query_feat, query_embed = self.prepare_sam_query(
+            points.unsqueeze(1), w=width, h=height,
+        ) # (N, 1, c)
+
+        # hidden_states (N, C) -> (N, 1, C)
+        num_frames = 0
+
+        mask_features = self.cur_batch_mask_features[batch_idxs]
+        multi_scale_memorys = self.cur_batch_multi_scale_memorys
+
+        query_feat = query_feat.to(mask_features)
+        query_embed = query_embed.to(mask_features)
+
+        decoder_inputs = []
+        decoder_positional_encodings = []
+        for i in range(self.num_transformer_feat_level):
+            decoder_input = self.decoder_input_projs[i](multi_scale_memorys[i])
+            # shape (batch_size, c, h, w) -> (batch_size, h*w, c)
+            decoder_input = decoder_input.flatten(2).permute(0, 2, 1)
+            level_embed = self.level_embed.weight[i].view(1, 1, -1)
+            decoder_input = decoder_input + level_embed
+
+            decoder_input = decoder_input[batch_idxs]  # (N, hw, c)
+            batch_size = len(decoder_input)
+
+            # shape (batch_size, c, h, w) -> (batch_size, h*w, c)
+            num_frames_real = 1
+            mask = decoder_input.new_zeros(
+                (batch_size, num_frames_real) + multi_scale_memorys[i].shape[-2:],
+                dtype=torch.bool)
+            decoder_positional_encoding = self.decoder_positional_encoding(
+                mask)
+            decoder_positional_encoding = decoder_positional_encoding.transpose(
+                1, 2).flatten(2).permute(0, 2, 1)
+            decoder_inputs.append(decoder_input)
+            decoder_positional_encodings.append(decoder_positional_encoding)
+
+        self_attn_mask = None
+
+        mask_pred_list = []
+        mask_pred, attn_mask = self._forward_head_sam(
+            query_feat, mask_features, multi_scale_memorys[0].shape[-2:],
+            num_frames=num_frames, bboxes=boxes_rela_coords,
+        )
+        # attn_mask = self._get_attn_mask_from_gt_mask(regions, multi_scale_memorys[0].shape[-2:])
+        if num_frames > 0:
+            mask_pred = mask_pred.unflatten(2, (num_frames, -1))
+        mask_pred_list.append(mask_pred)
+
+        for i in range(self.num_transformer_decoder_layers):
+            level_idx = i % self.num_transformer_feat_level
+            # if a mask is all True(all background), then set it all False.
+            attn_mask[torch.where(attn_mask.sum(-1) == attn_mask.shape[-1])] = False
+
+            # cross_attn + self_attn
+
+            layer = self.transformer_decoder.layers[i]
+            layer = layer.to(query_feat.dtype)
+            query_feat = layer(
+                query=query_feat,
+                key=decoder_inputs[level_idx],
+                value=decoder_inputs[level_idx],
+                query_pos=query_embed,
+                key_pos=decoder_positional_encodings[level_idx],
+                cross_attn_mask=attn_mask,
+                self_attn_mask=self_attn_mask,
+                query_key_padding_mask=None,
+                # here we do not apply masking on padded region
+                key_padding_mask=None,
+            )
+            mask_pred, attn_mask = self._forward_head_sam(
+                query_feat, mask_features, multi_scale_memorys[(i + 1) % self.num_transformer_feat_level].shape[-2:],
+                num_frames=num_frames, bboxes=boxes_rela_coords,
             )
 
             if num_frames > 0:
