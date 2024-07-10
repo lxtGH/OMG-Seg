@@ -1,5 +1,11 @@
 Please prepare dataset in the following format.
 
+
+For easier use, we suggest to use the datasets we have pre-processed in Hugging Face [OMG-Seg dataset](https://huggingface.co/HarborYuan/omgseg_data)
+and [OMG-LLaVA](https://huggingface.co/datasets/zhangtao-whu/OMG-LLaVA).
+
+## OMG-Seg datasets
+
 ### [PS/IS] COCO dataset
 
 The default setting as mmdetection.
@@ -99,7 +105,7 @@ Following official repo, we use resized videos for training and evaluation (The 
 
 ### [SS/PS] ADE dataset
 
-The default setting as mmdet
+The default setting as mmdet, note that please use our pre-processed ADE annotations.
 
 ```
 ├── ade
@@ -124,6 +130,7 @@ root
 ├── ext
 ├── figs
 ├── seg
+├── omg_llava
 ├── tools
 ├── data
 │   ├──coco
@@ -133,3 +140,18 @@ root
 │   ├──youtube_vis_2019
 │   ├──youtube_vis_2021
 │   ├──DAVIS
+```
+
+## OMG-LLaVA datasets
+
+Please download OMG-LLaVA dataset from HuggingFace webpage.
+
+```
+├── data
+│   ├──glamm_data
+│   ├──llava_data
+│   ├──mdpv_point
+│   ├──ref_seg
+│   ├──region_caption
+│   ├──semantic_seg
+```

@@ -43,6 +43,8 @@ Object-level, Pixel-level Reasoning and Understanding</h1>
       <img src='https://img.shields.io/badge/Huggingface%20Model-8A2BE2' alt='Project Page'> </a>
     <a href="https://huggingface.co/spaces/zhangtao-whu/OMG-LLaVA">
     <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-App-blue' alt='HuggingFace Model'> </a>
+    <a href='https://huggingface.co/zhangtao-whu/OMG-LLaVA/tree/main' style='padding-left: 0.5rem;'>
+      <img src='https://img.shields.io/badge/Gradio%20-Demo-8A2BE2' alt='Project Page'> </a>
   </p>
 <br />
 
@@ -51,8 +53,14 @@ Object-level, Pixel-level Reasoning and Understanding</h1>
 ## Prepare Environments, Datas and Weights
 Please refer to [INSTALL.md](./INSTALL.md)
 
+
 ## Setup Gradio Demo 
+
 We provide scripts for building the Gradio demo. You can deploy OMG-LLaVA locally.
+
+We suggest you use at 32G GPU for 7B models.
+
+
 ```shell
 python omg_llava/tools/app.py \
     ${PATH_TO_CONFIG} \
