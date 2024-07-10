@@ -140,7 +140,18 @@ root
 │   ├──youtube_vis_2019
 │   ├──youtube_vis_2021
 │   ├──DAVIS
-
+```
 
 ## OMG-LLaVA datasets
 
+Please download OMG-LLaVA dataset from HuggingFace webpage.
+
+```
+├── data
+│   ├──glamm_data
+│   ├──llava_data
+│   ├──mdpv_point
+│   ├──ref_seg
+│   ├──region_caption
+│   ├──semantic_seg
+```
