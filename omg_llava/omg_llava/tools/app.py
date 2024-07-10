@@ -300,7 +300,9 @@ def inference(input_str, all_inputs, follow_up):
     mm_inputs = prepare_inputs_labels_for_multimodal_with_visual_prompts(
         llm=llm, input_ids=ids, pixel_values=pixel_values,
         mark_id=mark_token_id,
-        mark_feats=mark_embeddings, region_id=-9999)
+        mark_feats=mark_embeddings, region_id=omg_llava.region_token_idx,
+        regions_feats=boxes_mark_embeddings,
+    )
 
     # mm_inputs['inputs_embeds'] = mm_inputs['inputs_embeds'].to(torch.float16)
 
