@@ -1061,9 +1061,6 @@ class Mask2FormerVideoSemSamHead(AnchorFreeHead):
                 cur_scale_bboxes[:, 2:] += 1
                 cur_scale_bboxes = torch.Tensor(np.floor(cur_scale_bboxes))
                 cur_scale_bboxes = cur_scale_bboxes.to(torch.int64)
-                print(cur_scale_bboxes)
-                print(attn_mask.shape)
-                print('----------------------------')
                 for i in range(bs):
                     sx, sy = cur_scale_bboxes[i][0], cur_scale_bboxes[i][1]
                     ex, ey = cur_scale_bboxes[i][2], cur_scale_bboxes[i][3]
@@ -1083,7 +1080,7 @@ class Mask2FormerVideoSemSamHead(AnchorFreeHead):
 
     def forward_point_prompt(self, points, batch_idxs, width, height):
         # regions (N, H, W)
-
+        print(points,)
         query_feat, query_embed = self.prepare_sam_query(
             points.unsqueeze(1), w=width, h=height,
         ) # (N, 1, c)
@@ -1173,6 +1170,7 @@ class Mask2FormerVideoSemSamHead(AnchorFreeHead):
         boxes_rela_coords[:, [0, 2]] /= width
         boxes_rela_coords[:, [1, 3]] /= height
 
+        print(points, '--', boxes_rela_coords)
         query_feat, query_embed = self.prepare_sam_query(
             points.unsqueeze(1), w=width, h=height,
         ) # (N, 1, c)
