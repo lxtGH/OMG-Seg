@@ -1064,10 +1064,10 @@ class Mask2FormerVideoSemSamHead(AnchorFreeHead):
                 for i in range(bs):
                     sx, sy = cur_scale_bboxes[i][0], cur_scale_bboxes[i][1]
                     ex, ey = cur_scale_bboxes[i][2], cur_scale_bboxes[i][3]
-                    attn_mask[i, :, :sy, :] = True
-                    attn_mask[i, :, ey:, :] = True
-                    attn_mask[i, :, :, :sx] = True
-                    attn_mask[i, :, :, ex:] = True
+                    attn_mask[i, :, :sy, :] = -100
+                    attn_mask[i, :, ey:, :] = -100
+                    attn_mask[i, :, :, :sx] = -100
+                    attn_mask[i, :, :, ex:] = -100
 
             # shape (num_queries, batch_size, h, w) ->
             #   (batch_size * num_head, num_queries, h, w)
@@ -1080,7 +1080,7 @@ class Mask2FormerVideoSemSamHead(AnchorFreeHead):
 
     def forward_point_prompt(self, points, batch_idxs, width, height):
         # regions (N, H, W)
-        print(points,)
+
         query_feat, query_embed = self.prepare_sam_query(
             points.unsqueeze(1), w=width, h=height,
         ) # (N, 1, c)
@@ -1170,7 +1170,6 @@ class Mask2FormerVideoSemSamHead(AnchorFreeHead):
         boxes_rela_coords[:, [0, 2]] /= width
         boxes_rela_coords[:, [1, 3]] /= height
 
-        print(points, '--', boxes_rela_coords)
         query_feat, query_embed = self.prepare_sam_query(
             points.unsqueeze(1), w=width, h=height,
         ) # (N, 1, c)
