@@ -2,7 +2,7 @@ import gradio as gr
 import numpy as np
 
 import sys
-from omg_llava.tools.app_utils import process_markdown, show_mask_pred, parse_visual_prompts
+from omg_llava.tools.app_utils import process_markdown, show_mask_pred, parse_visual_prompts, description
 
 import torch
 from transformers import (AutoModel, AutoModelForCausalLM, AutoTokenizer,
@@ -507,7 +507,7 @@ if __name__ == "__main__":
             # gr.Image(type="pil", label="Panoptic Segmentation", height=360),
             gr.Image(type="pil", label="Output Image"),
             gr.Markdown()],
-        theme=gr.themes.Soft(), allow_flagging="auto", )
+        theme=gr.themes.Soft(), allow_flagging="auto", description=description,)
 
     demo.queue()
     demo.launch(share=True)
