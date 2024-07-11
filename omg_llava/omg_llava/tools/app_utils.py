@@ -37,8 +37,8 @@ description = """
 &ensp;(1) For **Grounded Caption Generation** Interleaved Segmentation, input prompt like: *"Could you provide me with a detailed analysis of this photo? Please output with interleaved segmentation masks for the corresponding parts of the answer."* <br>
 &ensp;(2) For **Segmentation Output**, input prompt like: *"Can you please segment xxx in the given image"* <br>
 &ensp;(3) For **Image Captioning** VQA, input prompt like: *"Could you please give me a detailed description of the image?"* <br>
-&ensp;(4) For **Image Conversation**, input arbitrary text instruction"* <br>
-&ensp;(5) For **Visual prompt description**, first draw point or box in the image, and insert <point> or <box> into the text instruction. The input prompt like: *"Can you provide me with a detailed description of the region in the picture marked by region1 <point>?"* <br>
+&ensp;(4) For **Image Conversation**, input arbitrary text instruction. <br>
+&ensp;(5) For **Visual prompt description**, first draw point or box in the image, and insert \<point\> or \<box\> into the text instruction. The input prompt like: *"Can you provide me with a detailed description of the region in the picture marked by region1 \<point\>?"* <br>
 """
 
 ONE_THIRD = 1.0/3.0

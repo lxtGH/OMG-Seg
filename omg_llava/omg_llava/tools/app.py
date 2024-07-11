@@ -507,7 +507,9 @@ if __name__ == "__main__":
             # gr.Image(type="pil", label="Panoptic Segmentation", height=360),
             gr.Image(type="pil", label="Output Image"),
             gr.Markdown()],
-        theme=gr.themes.Soft(), allow_flagging="auto", description=description,)
+        theme=gr.themes.Soft(), allow_flagging="auto", description=description,
+        title='OMG-LLaVA'
+    )
 
     demo.queue()
     demo.launch(share=True)
