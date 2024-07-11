@@ -812,8 +812,7 @@ mdpv_multi_points_flicker30k_dataset = dict(
 
 train_dataset = dict(
     type=CombineDataset,
-    datasets_cfgs=[glamm_refcocog_dataset,
-                   mdpv_detailed_description_ade20k_dataset,],
+    datasets_cfgs=[glamm_refcocog_dataset,],
 )
 
 train_dataloader = dict(
