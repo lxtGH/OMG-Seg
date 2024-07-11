@@ -43,8 +43,8 @@ Object-level, Pixel-level Reasoning and Understanding</h1>
       <img src='https://img.shields.io/badge/Huggingface%20Model-8A2BE2' alt='Project Page'> </a>
     <a href="https://huggingface.co/spaces/zhangtao-whu/OMG-LLaVA">
     <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-App-blue' alt='HuggingFace Model'> </a>
-    <a href='https://huggingface.co/zhangtao-whu/OMG-LLaVA/tree/main' style='padding-left: 0.5rem;'>
-      <img src='https://img.shields.io/badge/Gradio%20-Demo-8A2BE2' alt='Project Page'> </a>
+    <a href='https://73ebf9f4d6b8376505.gradio.live/' style='padding-left: 0.5rem;'>
+      <img src='https://img.shields.io/badge/Gradio%20-Demo-8A2BE2' alt='Gradio'> </a>
   </p>
 <br />
 
