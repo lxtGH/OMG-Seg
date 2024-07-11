@@ -209,6 +209,8 @@ class OMGSegVisualEncoder(Mask2formerVideo):
             vis_mask_ids = ori_prob_masks.argmax(0).unsqueeze(0)
             self.vis_binary_masks = (vis_mask_ids == torch.arange(0, ori_prob_masks.shape[0]).unsqueeze(1).unsqueeze(2).to(
                 cur_mask_ids.device)).unsqueeze(1).to(torch.float32)
+        else:
+            self.vis_binary_masks = None
         return pixel_query, attn_mask
 
     def enable_input_require_grads(self):
