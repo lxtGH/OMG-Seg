@@ -113,10 +113,16 @@ def main():
     model = MODELS.build(cfg.model.backbone)
     model = model.get_text_model()
     model.init_weights()
-    dataset_cfg = copy.deepcopy(cfg.train_dataloader.dataset)
-    dataset_cfg.update(lazy_init=True)
-    dataset = DATASETS.build(dataset_cfg)
-    classes = dataset.metainfo['classes']
+    if cfg.get('CLASSES', None) is None:
+        dataset_cfg = copy.deepcopy(cfg.train_dataloader.dataset)
+        dataset_cfg.update(lazy_init=True)
+        dataset = DATASETS.build(dataset_cfg)
+        classes = dataset.metainfo['classes']
+        dataset_name = dataset.dataset_name if hasattr(dataset, 'dataset_name') else dataset.__class__.__name__
+    else:
+        classes = copy.deepcopy(cfg.CLASSES)
+        logger.info(f"Directly read CLASSES from cfg.")
+        dataset_name = cfg.DATASET_NAME
     logger.info(f"Dataset classes:\n{classes}")
 
     descriptions = []
@@ -172,7 +178,6 @@ def main():
         classifier = torch.stack(classifier)
 
         embd_path = os.path.join(os.path.expanduser('~/.cache'), 'embd')
-        dataset_name = dataset.dataset_name if hasattr(dataset, 'dataset_name') else dataset.__class__.__name__
         save_path = os.path.join(embd_path, f'{model.model_name}_{dataset_name}.pth')
         mmengine.mkdir_or_exist(os.path.dirname(save_path))
         classifier_to_save = classifier
