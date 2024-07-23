@@ -6,7 +6,7 @@ from mmdet.models.task_modules.assigners import HungarianAssigner, Classificatio
 from mmdet.models.task_modules.samplers import MaskPseudoSampler
 
 from seg.models.data_preprocessor import VideoSegDataPreprocessor
-from seg.models.detectors import Mask2formerVideo
+from seg.models.detectors import Mask2formerVideoMinVIS
 from seg.models.fusion_head import OMGFusionHead
 from seg.models.heads import Mask2FormerVideoHead
 from seg.models.backbones import OpenCLIPBackbone
@@ -46,7 +46,12 @@ data_preprocessor = dict(
 )
 
 model = dict(
-    type=Mask2formerVideo,
+    type=Mask2formerVideoMinVIS,
+    clip_size=3,
+    clip_size_small=3,
+    whole_clip_thr=0,
+    small_clip_thr=10,
+    overlap=0,
     data_preprocessor=data_preprocessor,
     backbone=dict(
         type=OpenCLIPBackbone,
