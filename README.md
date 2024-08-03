@@ -48,8 +48,8 @@ Short introduction on VALSE of OMG-Seg with other SAM-like works, can be found [
 
 ## News !!
 
-- 🔥2023-6-28, Release OMG-LLaVA test code and ckpt (7B) models, will be released soon. 
-- 🔥2023-4-06, Update the model trained with only one machine and demo scripts.
+- 🔥2024-6-28, Release OMG-LLaVA test code and ckpt (7B) models, will be released soon. 
+- 🔥2024-4-06, Update the model trained with only one machine and demo scripts.
 - 🔥2024-3-18, Training Code of OMG-Seg are released !! Stronger Performance using Object-365-instance segmentation pre-train !!
 - 🔥2024-2-26, OMG-Seg is accepted by CVPR-2024 !!
 - 🔥2024-1-19, Models and Test Code are released !!
