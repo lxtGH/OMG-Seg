@@ -120,7 +120,7 @@ python omg_llava/tools/app.py omg_llava/configs/finetune/omg_llava_7b_finetune_8
     --split ${val or testA or testB}
   
   # for evaluation gcg
-  NPROC_PER_NODE=8 xtuner gcd_omg_seg_llava \
+  NPROC_PER_NODE=8 xtuner gcg_omg_seg_llava \
     ${PATH_TO_CONFIG} \
     ${PATH_TO_PTH} \
     --output-name gcg_pred
