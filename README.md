@@ -114,10 +114,10 @@ If you think our codebases and works are useful for your research, please consid
 
 ```bibtex
 
-@article{OMGLLaVA,
+@inproceedings{OMGLLaVA,
   title={OMG-LLaVA: Bridging Image-level, Object-level, Pixel-level Reasoning and Understanding},
   author={Zhang, Tao and Li, Xiangtai and Fei, Hao and Yuan, Haobo and Wu, Shengqiong and Ji, Shunping and Chen, Change Loy and Yan, Shuicheng},
-  journal={arXiv preprint},
+  booktitle={NeurIPS},
   year={2024}
 }
 
