@@ -4,7 +4,7 @@
   <h1 align="center">OMG-LLaVA: Bridging Image-level,
 Object-level, Pixel-level Reasoning and Understanding</h1>
   <p align="center">
-    Arxiv, 2024
+    NeurIPS, 2024
     <br />
     <a href="https://zhang-tao-whu.github.io/"><strong>Tao Zhang</strong></a>
     .
@@ -28,6 +28,7 @@ Object-level, Pixel-level Reasoning and Understanding</h1>
     Wuhan University,
     Skywork AI,
     S-Lab, MMlab@NTU,
+    Bytedance
   </p>
   
    <p align="center">
@@ -50,7 +51,7 @@ Object-level, Pixel-level Reasoning and Understanding</h1>
 
 ![avatar](./figs/omg_llava.png)
 
-## Prepare Environments, Datas and Weights
+## Prepare Environments, Data and Weights
 Please refer to [INSTALL.md](./INSTALL.md)
 
 
@@ -58,7 +59,7 @@ Please refer to [INSTALL.md](./INSTALL.md)
 
 We provide scripts for building the Gradio demo. You can deploy OMG-LLaVA locally.
 
-We suggest you use at 32G GPU for 7B models.
+We suggest you use at least 32G GPU for 7B models.
 
 
 ```shell
