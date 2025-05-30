@@ -132,6 +132,6 @@ If you think our codebases and works are useful for your research, please consid
 
 ## License
 
-OMG-Seg follows the S-Lab [LICENSE](LICENSE).
+OMG-Seg follows the MIT License [LICENSE](LICENSE).
 
 OMG-LLaVA follows the [Apache-2.0 license](https://github.com/haotian-liu/LLaVA?tab=Apache-2.0-1-ov-file), for the respect of both [LLaVA](https://github.com/haotian-liu/LLaVA) and [XTuner](https://github.com/InternLM/xtuner) codebase.
