@@ -1,6 +1,6 @@
 # Install
 
-The correct functioning of this repository depends on the right versioning of some of its libraries, specially OpenMMLab. Below you'll see a step-by-step on how to setup them. 
+The correct functioning of this repository depends on the right versioning of some of its libraries, especially OpenMMLab. Below you'll see a step-by-step on how to set them up. 
 
 ## Requirements
 
@@ -39,4 +39,4 @@ python -m pip install git+https://github.com/cocodataset/panopticapi.git \
                       tqdm terminaltables pycocotools scipy tqdm ftfy regex timm scikit-image kornia
 ```
 
-After all the steps, you should have a functional environment for the execution of the codebase.
+After all the steps, you should have a functional environment for executing the codebase.
