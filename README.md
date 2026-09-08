@@ -46,6 +46,15 @@ We rigorously evaluate the inter-task influences and correlations during co-trai
 Short introduction on VALSE of OMG-Seg with other SAM-like works, can be found [here](https://www.bilibili.com/video/BV1PZ421b7U7/?spm_id_from=333.337.search-card.all.click&vd_source=6bb672e5bcff6f43a998d1ba30743967), in Chinese.
 
 
+## 📊 Statistics
+
+<p align="center">
+  <a href="https://github.com/lxtGH/OMG-Seg">
+    <img src="https://repo-card.harboryuan.workers.dev/lxtGH/OMG-Seg.svg" alt="OMG-Seg repo card" width="560">
+  </a>
+</p>
+
+
 ## News !!
 
 - 🔥2024-9-26, OMG-LLaVA is accepted by NeurIPS-2024!!
