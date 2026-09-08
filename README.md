@@ -4,6 +4,15 @@ Our goal is to solve multiple fundamental visual perception, visual reasoning, a
 in one shot.
 
 
+## 📊 Statistics
+
+<p align="center">
+  <a href="https://github.com/lxtGH/OMG-Seg">
+    <img src="https://repo-card.harboryuan.workers.dev/lxtGH/OMG-Seg.svg" alt="OMG-Seg repo card" width="560">
+  </a>
+</p>
+
+
 ### Short Introduction of OMG-LLaVA, [arxiv](https://arxiv.org/abs/2406.19389), [Project Page](https://lxtgh.github.io/project/omg_llava/), [Introduction by Fahd Mirza](https://www.youtube.com/watch?v=A4CWwgrxvSE)
   <p align="center">
     <a href='https://arxiv.org/abs/2406.19389'>
@@ -44,15 +53,6 @@ We show that OMG-Seg, a transformer-based encoder-decoder architecture with task
 We rigorously evaluate the inter-task influences and correlations during co-training. Both the code and models will be publicly available.
 
 Short introduction on VALSE of OMG-Seg with other SAM-like works, can be found [here](https://www.bilibili.com/video/BV1PZ421b7U7/?spm_id_from=333.337.search-card.all.click&vd_source=6bb672e5bcff6f43a998d1ba30743967), in Chinese.
-
-
-## 📊 Statistics
-
-<p align="center">
-  <a href="https://github.com/lxtGH/OMG-Seg">
-    <img src="https://repo-card.harboryuan.workers.dev/lxtGH/OMG-Seg.svg" alt="OMG-Seg repo card" width="560">
-  </a>
-</p>
 
 
 ## News !!
